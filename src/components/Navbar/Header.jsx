@@ -7,41 +7,44 @@ const MenuOfLinks = () => {
       <ul className='flex flex-col 
       md:flex-row gap-4 justify-between 
       items-center w-full bg-transparent md:bg-transparent text-black'>
-        <li 
-        className='hover:underline hover:decoration-solid 
+        <li
+          className='hover:underline hover:decoration-solid 
         font-semibold md:pt-0 pt-5 duration-1000'>
           <NavLink
             to=""
-            className={({isActive}) =>`${isActive ? 'text-red-800' : 'text-black'}`}>
+            className={({ isActive }) => `${isActive ? 'text-red-800' : 'text-black'}`}>
             Home
           </NavLink>
         </li>
-        <li 
-        className='hover:underline hover:decoration-solid font-semibold'>
+        <li
+          className='hover:underline hover:decoration-solid font-semibold'>
           <NavLink
+            className={({ isActive }) => `${isActive ? 'text-red-800' : 'text-black'}`}
             to='/EcommerceUsingContext/product'
           >
             Products
           </NavLink>
         </li>
-        <li 
-        className='hover:underline hover:decoration-solid font-semibold'>
+        <li
+          className='hover:underline hover:decoration-solid font-semibold'>
           <NavLink
+            className={({ isActive }) => `${isActive ? 'text-red-800' : 'text-black'}`}
             to='/EcommerceUsingContext/cart'
           >
             Cart
           </NavLink>
         </li>
-        <li 
-        className='hover:underline hover:decoration-solid font-semibold'>
+        <li
+          className='hover:underline hover:decoration-solid font-semibold'>
           <NavLink
+            className={({ isActive }) => `${isActive ? 'text-red-800' : 'text-black'}`}
             to='/EcommerceUsingContext/about'
           >
             About
           </NavLink>
         </li>
-        <li 
-        className='md:pe-2'
+        <li
+          className='md:pe-2'
         >
           <button
             className='bg-cyan-900 
@@ -49,7 +52,7 @@ const MenuOfLinks = () => {
         w-[90vw] md:w-[100px] md:mb-0 mb-5 rounded-lg'
           >
             <NavLink
-              to="/SignIn"
+              to="/EcommerceUsingContext/SignIn"
             >
               Sign Up
             </NavLink>
@@ -65,7 +68,7 @@ const Header = () => {
   return (
     <>
       <div
-      className='flex fixed top-0 right-0 w-full 
+        className='flex fixed top-0 right-0 w-full 
       justify-between items-center 
       h-[fit-content] bg-[#eff1fa] z-[55] 
       flex-wrap py-3 shadow-lg'>

@@ -13,7 +13,7 @@ import Cart from './components/Cart/Cart.jsx';
 
 const route = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/EcommerceUsingContext/' element={<Layout />}>
+    <Route path='/EcommerceUsingContext' element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path='product' element={<Products />} />

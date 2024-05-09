@@ -12,14 +12,14 @@ const MenuOfLinks = () => {
         font-semibold md:pt-0 pt-5 duration-1000'>
           <NavLink
             to=""
-            className={(isActive) => `${isActive ? `text-red` : 'text-black'}`}>
+            className={({isActive}) =>`${isActive ? 'text-red-800' : 'text-black'}`}>
             Home
           </NavLink>
         </li>
         <li 
         className='hover:underline hover:decoration-solid font-semibold'>
           <NavLink
-            to='/product'
+            to='/EcommerceUsingContext/product'
           >
             Products
           </NavLink>
@@ -27,7 +27,7 @@ const MenuOfLinks = () => {
         <li 
         className='hover:underline hover:decoration-solid font-semibold'>
           <NavLink
-            to='/cart'
+            to='/EcommerceUsingContext/cart'
           >
             Cart
           </NavLink>
@@ -35,7 +35,7 @@ const MenuOfLinks = () => {
         <li 
         className='hover:underline hover:decoration-solid font-semibold'>
           <NavLink
-            to='/about'
+            to='/EcommerceUsingContext/about'
           >
             About
           </NavLink>
@@ -49,7 +49,7 @@ const MenuOfLinks = () => {
         w-[90vw] md:w-[100px] md:mb-0 mb-5 rounded-lg'
           >
             <NavLink
-              to="/signUpPage"
+              to="/SignIn"
             >
               Sign Up
             </NavLink>

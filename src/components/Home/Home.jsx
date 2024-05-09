@@ -1,4 +1,4 @@
-
+import Cards from "./Cards"
 
 function Home() {
 
@@ -34,6 +34,7 @@ function Home() {
                     </button>
                 </div>
             </div>
+            <Cards/>
         </>
 
 

@@ -52,7 +52,7 @@ const MenuOfLinks = () => {
         w-[90vw] md:w-[100px] md:mb-0 mb-5 rounded-lg'
           >
             <NavLink
-              to="/EcommerceUsingContext/SignIn"
+              to="/EcommerceUsingContext/signin"
             >
               Sign Up
             </NavLink>

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useState } from "react"
-
+import navLogo from "../../assets/logo.png"
 const MenuOfLinks = () => {
   return (
     <>
@@ -76,7 +76,7 @@ const Header = () => {
           className="logo basis-1/4 ps-4">
           <img
             className='md:h-10 h-6'
-            src="src\assets\logo.png"
+            src={navLogo}
             alt="" />
         </div>
 

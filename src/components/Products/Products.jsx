@@ -2,15 +2,13 @@ import { useContext } from "react"
 import { AppContext } from "../../Context/Store"
 import { CiStar } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
 
 function Products() {
-    const {data, setCart, cart} = useContext(AppContext);
-    // console.log(data);
-    function CartItem(id, price, description,image,title){
-        setCart([...cart,{title:{title}, description:{description}}])
-        console.log(id, price, title, description, image);
-    }
+    const {data, addToCart} = useContext(AppContext);
+    // console.log(data)
+
     return (
         <>
             <div className="mt-[3rem]">
@@ -29,7 +27,7 @@ function Products() {
             flex-wrap px-5 gap-4 py-10 bg-slate-200">
                     {
                         data.map((post) => {
-                            const { id, image, title, description, price } = post;
+                            const { id, image, title, price } = post;
                             const SetWords = (str, num) => {
                                 const words = str.split(" ");
                                 return words.splice(0, num).join(" ")
@@ -37,7 +35,7 @@ function Products() {
                             const limitedTitle = SetWords(title, 4);
 
                             return (
-                                <div
+                                <NavLink
                                     className="sm:basis-[23%] sm:min-w-[250px] 
                                     w-full sm:h-[400px]
                                     h-[150px]
@@ -50,6 +48,7 @@ function Products() {
                                     items-center gap-2 sm:gap-0 bg-white
                                     md:relative"
                                     key={id}
+                                    to={`/EcommerceUsingContext/product/${id}`}
                                 >
                                     <img
                                         className="sm:w-[90%] w-[50%] h-[100%] rounded-lg sm:h-[300px] 
@@ -74,11 +73,11 @@ function Products() {
                                         className="md:absolute md:bottom-2 md:right-2 rounded-3xl 
                                         px-3 py-3 h-fit 
                                         bg-green-700 text-white"
-                                        onClick={()=>CartItem()}>
+                                        onClick={()=>addToCart(post)}>
                                         <FaCartShopping/>
                                         </button>
                                     </div>
-                                </div>
+                                </NavLink>
                             )
                         })
                     }

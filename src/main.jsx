@@ -10,6 +10,8 @@ import SignIn from "./components/Sign In/SignIn"
 import Home from "./components/Home/Home.jsx"
 import Layout from "./components/Outlet/Outlet.jsx"
 import Cart from './components/Cart/Cart.jsx';
+import ItemPage from './components/SeparateItem/ItemPage.jsx';
+import ItemPageJson from './components/SeparateItem/ItemPageJson.jsx';
 
 const route = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +21,8 @@ const route = createBrowserRouter(
       <Route path='product' element={<Products />} />
       <Route path='signin' element={<SignIn />} />
       <Route path="cart" element={<Cart/>}/>
+      <Route path="product/:userId" element={<ItemPage/>}/>
+      <Route path="jsonproduct/:id" element={<ItemPageJson/>}/>
       <Route path="*" element={<div>NOt Available</div>} />
     </Route>
   )

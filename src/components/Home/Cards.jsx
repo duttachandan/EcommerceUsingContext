@@ -1,6 +1,7 @@
-import { items } from "../../assets/Images"
+import items from "../../assets/Images"
 import { CiStar } from 'react-icons/ci'
-import { nanoid } from 'nanoid'
+import { NavLink } from "react-router-dom"
+
 
 function Cards() {
 
@@ -12,9 +13,9 @@ function Cards() {
             flex-wrap px-5 py-10 bg-slate-200 gap-5">
                 {
                     items.map((post) => {
-                        const id = nanoid();
+                        const {title, brand, id, image, rating} = post
                         return (
-                            <div
+                            <NavLink
                                 className="basis-[20%] min-w-[250px] 
                             w-full 
                             px-[10px] py-[5px] 
@@ -25,23 +26,24 @@ function Cards() {
                             bg-white
                             "
                                 key={id}
+                                to={`/EcommerceUsingContext/jsonproduct/${id}`}
                             >
                                 <img
                                     className="w-[100%]
                                     object-cover px-2 py-2"
-                                    src={post} alt="" />
+                                    src={image} alt="" />
                                 <div className="flex flex-col w-full justify-center items-start">
-                                    <h1 className='text-2xl text-slate-800 font-bold'>Printed T-shirt</h1>
-                                    <h2 className='text-lg font-semibold'>Adidas</h2>
+                                    <h1 className='text-2xl text-slate-800 font-bold'>{title}</h1>
+                                    <h2 className='text-lg font-semibold'>{brand}</h2>
                                     <p className='text-xl flex flex-row items-center'>
-                                        <CiStar />5
+                                        <CiStar />{rating}
                                     </p>
                                     <h3
                                         className="text-xl font-bold text-[#088178]">
-                                        $200
+                                        $200 
                                     </h3>
                                 </div>
-                            </div>
+                            </NavLink>
                         )
                     })
                 }

@@ -16,17 +16,37 @@ export const AppProvider = (props) => {
                 setData(res.data);
             });
     }, [])
-    // const CartItem=(e)=>{
-        
-    // }
+
+    // remove Item from the store
+    function removeItem(){
+        setCart([]);
+    }
+
+    //Add to cart Button functionality
+    function addToCart(product) {
+        const productId = cart.findIndex(element => element.id == product.id)
+        if (productId !== -1) {
+            const updatedCart = [...cart];
+            // updatedCart[productId].quantity++;
+            console.log(updatedCart[productId].quantity+1);
+            return setCart(updatedCart);
+            // localStorage.setItem("cart", JSON.stringify(updatedCart));
+            
+        } else {
+            const initialvalue = 1;
+            const updatedCart = [...cart,{...product,quantity:initialvalue}]
+            return setCart(updatedCart);
+            // localStorage.setItem("cart", JSON.stringify(updatedCart));
+        }
+    }
+    //Add to cart button functionality ends here
 
     return (
 
-        <AppContext.Provider value={{data, cart, setCart}}>
+        <AppContext.Provider value={{ data, cart, setCart, url, addToCart, removeItem }}>
             {props.children}
         </AppContext.Provider>
 
     )
 }
-
 

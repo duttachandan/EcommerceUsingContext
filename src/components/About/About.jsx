@@ -5,7 +5,7 @@ function About() {
   return (
     <div className='bg-slate-200 w-full mt-[3rem]'>
       <video
-        className='h-[fit-content] px-10 py-8 rounded-md overflow-hidden'
+        className='h-[fit-content] px-10 py-8 rounded-md overflow-hidden mx-auto'
         muted
         loop
         autoPlay>

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 import Cards from "./Cards"
 
 function Home() {
@@ -26,12 +27,13 @@ function Home() {
                         className="font-light text-gray-500 overflow-hidden">
                         save more with coupons & upto 70% off!
                     </p>
-                    <button
+                    <NavLink
                         id="btn"
                         className="py-[14px] px-[55px] 
-                    text-[#088178] font-bold">
+                    text-[#088178] font-bold"
+                    to="/EcommerceUsingContext/product">
                         Shop Now
-                    </button>
+                    </NavLink>
                 </div>
             </div>
             <Cards/>

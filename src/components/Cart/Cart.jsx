@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { FaCartShopping } from "react-icons/fa6";
 import { AppContext } from '../../Context/Store';
 

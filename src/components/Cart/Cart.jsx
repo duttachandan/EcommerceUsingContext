@@ -1,26 +1,11 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { FaCartShopping } from "react-icons/fa6";
 import { AppContext } from '../../Context/Store';
 
 function Cart() {
     const data = useContext(AppContext);
     const { cart, setCart, removeItem } = data;
-    // onload we are fetching data from the local storage
-
-    /*function loadCart(){
-        const Item = localStorage.getItem("cart");
-        console.log(Item);
-        const newItem = JSON.parse(Item);
-        setCart(newItem);
-        console.log(cart)
-    }
-    useEffect(()=>{
-        loadCart();
-    },[])
-    */
-
-    // onload complete
-
+    
 
     // Increment or decrement button
     function increaseQuantity(id) {
@@ -32,7 +17,8 @@ function Cart() {
         })
         setCart(updatedCart);
     }
-
+    
+    // Decrement button
     function decreaseQuantity(id) {
         const updatedCart = cart.map((element) => {
             if (element.id == id) {
@@ -140,7 +126,7 @@ function Cart() {
                 </p>
                 <button
                     className='bg-green-500 py-2 px-6 text-sm rounded-lg md:text-xl font-semibold'
-                >
+                onClick={()=>alert("order confirm")}>
                     Order Now
                 </button>
             </div>

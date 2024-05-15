@@ -28,15 +28,13 @@ export const AppProvider = (props) => {
         if (productId !== -1) {
             const updatedCart = [...cart];
             // updatedCart[productId].quantity++;
-            console.log(updatedCart[productId].quantity+1);
+            updatedCart[productId].quantity+1;
             return setCart(updatedCart);
-            // localStorage.setItem("cart", JSON.stringify(updatedCart));
             
         } else {
             const initialvalue = 1;
             const updatedCart = [...cart,{...product,quantity:initialvalue}]
             return setCart(updatedCart);
-            // localStorage.setItem("cart", JSON.stringify(updatedCart));
         }
     }
     //Add to cart button functionality ends here

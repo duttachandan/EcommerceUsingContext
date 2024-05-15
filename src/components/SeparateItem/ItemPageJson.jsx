@@ -29,7 +29,10 @@ function ItemPageJson() {
                             <FaStar className='text-yellow-500' /> {product.rating}
                         </p>
                         <p className='text-xl font-bold text-green-900'>${product.price}</p>
-                        <button className='text-xl bg-green-400 hover:bg-green-700 rounded-md text-white py-2 px-5'>
+                        <button 
+                        className='text-xl bg-green-400 hover:bg-green-700 
+                        rounded-md text-white py-2 px-5'
+                        onClick={()=>alert("This product is not optimized for cart, select any product from products section ")}>
                             Add To cart
                         </button>
                     </div>

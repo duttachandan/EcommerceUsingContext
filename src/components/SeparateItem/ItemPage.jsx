@@ -8,13 +8,11 @@ function ItemPage() {
     const data = useContext(AppContext);
     const [product, setProduct] = useState()
     const { userId } = useParams();
-    // console.log(userId);
     const { url, addToCart } = data;
     useEffect(() => {
         const fetchData = () => axios.get(`${url}/${userId}`)
             .then((res) => {
                 setProduct(res.data);
-                // console.log(res.data);
             })
         fetchData();
     }, [userId, url])
@@ -51,7 +49,7 @@ function ItemPage() {
                         ${product.price}
                         </p>
                         <NavLink 
-                        onClick={addToCart(product)}
+                        onClick={()=>addToCart(product)}
                         to="/EcommerceUsingContext/cart"
                         className='text-xl bg-green-400 hover:bg-green-700
                         rounded-md text-white py-2 px-5'>

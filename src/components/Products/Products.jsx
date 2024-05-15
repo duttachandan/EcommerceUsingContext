@@ -27,6 +27,7 @@ function Products() {
             flex-wrap px-5 gap-4 py-10 bg-slate-200">
                     {
                         data.map((post) => {
+                            console.log(post);
                             const { id, image, title, price } = post;
                             const SetWords = (str, num) => {
                                 const words = str.split(" ");
@@ -69,13 +70,13 @@ function Products() {
                                             className="text-xl font-bold text-[#088178]">
                                             {`$${price}`}
                                         </h3>
-                                        <button 
+                                        <NavLink 
                                         className="md:absolute md:bottom-2 md:right-2 rounded-3xl 
-                                        px-3 py-3 h-fit 
-                                        bg-green-700 text-white"
+                                        px-3 py-3 h-fit bg-green-700 text-white"
+                                        to="/EcommerceUsingContext/cart"
                                         onClick={()=>addToCart(post)}>
                                         <FaCartShopping/>
-                                        </button>
+                                        </NavLink>
                                     </div>
                                 </NavLink>
                             )

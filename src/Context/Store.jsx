@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext } from 'react'
+import { useEffect, useState, createContext, useCallback } from 'react'
 import axios from 'axios';
 
 
@@ -9,10 +9,12 @@ export const AppProvider = (props) => {
     // const url200 = "https://api.escuelajs.co/api/v1/products"
     const [data, setData] = useState([]);
     const [cart, setCart] = useState([]);
+    const [originalData, setOriginalData] = useState();
 
     useEffect(() => {
         axios.get(url)
             .then((res) => {
+                setOriginalData(res.data);
                 setData(res.data);
             });
     }, [])
@@ -21,6 +23,11 @@ export const AppProvider = (props) => {
     function removeItem(){
         setCart([]);
     }
+
+    //For applying no filter to the products
+    const applyNoFilter= useCallback(()=>{
+        setData(originalData);
+    },[originalData]);
 
     //Add to cart Button functionality
     function addToCart(product) {
@@ -41,7 +48,7 @@ export const AppProvider = (props) => {
 
     return (
 
-        <AppContext.Provider value={{ data, cart, setCart, url, addToCart, removeItem }}>
+        <AppContext.Provider value={{ data, setData,  cart, setCart, url, addToCart, removeItem, applyNoFilter, originalData }}>
             {props.children}
         </AppContext.Provider>
 

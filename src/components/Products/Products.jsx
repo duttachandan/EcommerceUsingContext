@@ -6,9 +6,13 @@ import { NavLink } from "react-router-dom";
 
 
 function Products() {
-    const {data, addToCart} = useContext(AppContext);
-    // console.log(data)
-
+    const {data, addToCart, setData, applyNoFilter, originalData} = useContext(AppContext);
+    console.log(data);
+    function changeCategory(type){
+        applyNoFilter()
+        const filterData = originalData.filter(element=>element.category==type);
+        setData(filterData);
+    }
     return (
         <>
             <div className="mt-[3rem]">
@@ -16,10 +20,21 @@ function Products() {
             flex flex-row
             justify-center items-center 
             w-full gap-4 pt-5">
-                    <button>Men</button>
-                    <button>Women</button>
-                    <button>Electrical</button>
-                    <button>Jewelery</button>
+                    <button 
+                    className="hover:text-red-600 active:text-red-500"
+                    onClick={()=>changeCategory("men's clothing")}>Men</button>
+                    <button 
+                    className="hover:text-red-600 active:text-red-500"
+                    onClick={()=>changeCategory("women's clothing")}>Women</button>
+                    <button 
+                    className="hover:text-red-600 active:text-red-500"
+                    onClick={()=>changeCategory("electronics")}>Electrical</button>
+                    <button 
+                    className="hover:text-red-600 active:text-red-500"
+                    onClick={()=>changeCategory("jewelery")}>Jewelery</button>
+                    <button 
+                    className="hover:text-red-600 active:text-red-500"
+                    onClick={()=>applyNoFilter()}>All</button>
                 </div>
                 <div
                     className="flex h-[fit-content] 
